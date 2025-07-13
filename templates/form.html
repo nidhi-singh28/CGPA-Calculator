@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CGPA Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            background-color: #fff;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        input[type="number"], select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .sgpa-input {
+            margin-bottom: 10px;
+        }
+    </style>
 
+    <script>
+        function showSGPAFields() {
+            const count = document.getElementById("semesterCount").value;
+            const container = document.getElementById("sgpaFields");
+            container.innerHTML = ""; // clear previous inputs
+
+            for (let i = 1; i <= count; i++) {
+                const label = document.createElement("label");
+                label.innerText = "Semester " + i + " SGPA:";
+
+                const input = document.createElement("input");
+                input.type = "number";
+                input.step = "0.01";
+                input.min = "0";
+                input.max = "10";
+                input.name = "sgpa" + i;
+                input.required = true;
+
+                container.appendChild(label);
+                container.appendChild(input);
+            }
+
+            document.getElementById("submitBtn").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+
+    <h1>CGPA Calculator</h1>
+    <form method="POST">
+        <label for="semesterCount">How many semesters have you completed?</label>
+        <select id="semesterCount" name="semesterCount" onchange="showSGPAFields()" required>
+            <option value="">Select</option>
+            <option value="1">1 Semester</option>
+            <option value="2">2 Semesters</option>
+            <option value="3">3 Semesters</option>
+            <option value="4">4 Semesters</option>
+            <option value="5">5 Semesters</option>
+            <option value="6">6 Semesters</option>
+            <option value="7">7 Semesters</option>
+            <option value="8">8 Semesters</option>
+        </select>
+
+        <div id="sgpaFields"></div>
+
+        <input type="submit" value="Calculate CGPA" id="submitBtn" style="display:none;">
+    </form>
+
+</body>
+</html>
