@@ -8,8 +8,8 @@ A simple Flask-based web app that calculates CGPA based on semester-wise SGPAs e
 - Flask  
 - HTML/CSS  
 
-![CGPA Calculator Output](output_1.png)
-![CGPA Calculator Output](output_2.png)
-![CGPA Calculator Output](output_3.png)
+![CGPA Calculator Output](output_1.jpg)
+![CGPA Calculator Output](output_2.jpg)
+![CGPA Calculator Output](output_3.jpg)
 
 
